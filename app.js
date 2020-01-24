@@ -1,46 +1,46 @@
-import React from 'react';
-import { StyleSheet, Text, View,Button,Alert, Image } from 'react-native';
+import * as React from 'react';
+import { StatusBar,View,TextInput } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={{fontWeight: 'bold'}}> Thihan Gamage</Text>
-       <Text style={{color: 'blue'}}> 99</Text>
+export default class App extends React.Component {
+  state= {
+    inputValue:''
+  };
+  render() {
+    return (
+      <LinearGradient colors={['#511259', '#FF1300']} style={{ flex:1 }}>
+      <StatusBar barStyle="light-content" />
+     <View>
+        <TextInput
+  style={styles.input}
+  placeholder="Thihan Gamage "
+  placeholderTextColor={'#fff'}
+  multiline={true}      
+  autoCapitalize="sentences"
+  underlineColorAndroid="transparent"
+  selectionColor={'white'}
+  maxLength={30}
+  returnKeyType="done"
+  autoCorrect={false}
+  blurOnSubmit={true}
+  />
+  </View>
+</LinearGradient>
 
- <Image
-          style={{width: 300, height: 300}}
-          source={{uri: 'https://mir-s3-cdn-cf.behance.net/user/276/a9c7bd355893955.5cd746bcb250f.jpg'}}
-        />
-<Text>My name is Thihan, Im a student at AMDT. This is my mobile app project</Text>
-      <Button
-          title="Press me"
-          onPress={() => Alert.alert('Thihan Gamage')}
-
-        />
-
-        <Image
-          style={{width: 50, height: 50}}
-          source={require('@expo/snack-static/react-native-logo.png')}
-        />
-         <Text style={{fontWeight: 'bold'}}>
-      CYKA_
-        <Text style={{color: 'red'}}>
-        THIHAN
-        </Text>
-      </Text>
-      </View>
-  
-  );
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const styles ={
+input:
+{
+  marginTop: 30,
+  paddingTop: 10,
+  paddingRight: 15,
+  paddingLeft: 15,
+  color: 'white',
+  fontWeight:'500'
+    }
+}
 
-    
-  },
-  
-});
+
